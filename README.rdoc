@@ -1,1 +1,3 @@
 == Rational mini app
+
+Property of Omar De Anda
