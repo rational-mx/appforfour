@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   before_action :set_like, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :html,:js
 
   def index
     @likes = Like.all
@@ -22,8 +22,9 @@ class LikesController < ApplicationController
 
   def create
     @like = Like.new(like_params)
+    @post = @like.post
     @like.save
-    respond_with(@like)
+    respond_with(@like.post)
   end
 
   def update

@@ -6,12 +6,12 @@
 %p
   %b User:
   = @post.user.username
-%p
   = render 'likes/form'
+%div#likes
   %b likes:
   = @post.likes.count
 
-%p
+%p#comments
   %b Comments:
   - @post.comments.each do |comment|
     = comment.user.username
