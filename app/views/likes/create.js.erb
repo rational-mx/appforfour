@@ -1,1 +1,1 @@
-$('#likes').html("<b>likes: </b><%= @post.likes.count %>");
+$('#likes').html("<%= j (render 'liked')%>");

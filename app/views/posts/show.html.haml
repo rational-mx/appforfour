@@ -6,10 +6,13 @@
 %p
   %b User:
   = @post.user.username
-  = render 'likes/form'
-%div#likes
-  %b likes:
-  = @post.likes.count
+  %div#likes
+    - if @already_liked
+      = link_to "Don't like anymore", like_path(@like), method: :delete, remote: true
+    - else 
+      = render 'likes/form'
+    %b likes:
+    = @post.likes.count
 
 %p#comments
   %b Comments:

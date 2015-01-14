@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   before_action :set_like, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html,:js
+  respond_to :html, :js
 
   def index
     @likes = Like.all
@@ -33,13 +33,20 @@ class LikesController < ApplicationController
   end
 
   def destroy
+    @post = @like.post
     @like.destroy
+    @like = @post.likes.new
+    @like.user = current_user
     respond_with(@like)
   end
 
   private
     def set_like
       @like = Like.find(params[:id])
+    end
+
+    def set_post
+      @post = @like.post
     end
 
     def like_params
