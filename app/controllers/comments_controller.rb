@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :html, :js
 
   def index
     @comments = Comment.all
@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @post = @comment.post
     @comment.save
     respond_with(@comment.post)
   end
