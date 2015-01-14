@@ -3,7 +3,7 @@
 
   .form-inputs
     = f.input :body
-    = f.association :user
+    = f.association :user, as: :hidden
 
   .form-actions
     = f.button :submit

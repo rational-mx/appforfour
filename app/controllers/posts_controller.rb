@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :htmt
 
   def index
     @posts = Post.all
@@ -10,6 +10,9 @@ class PostsController < ApplicationController
 
   def show
     @comment = @post.comments.new
+    @like = @post.likes.new
+    @like.user = current_user
+    @comment.user = current_user
     respond_with(@post)
   end
 
@@ -23,6 +26,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     @post.save
     respond_with(@post)
   end

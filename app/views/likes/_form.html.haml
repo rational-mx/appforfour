@@ -1,11 +1,8 @@
-= simple_form_for(@comment) do |f|
+= simple_form_for(@like) do |f|
   = f.error_notification
 
   .form-inputs
-
-    = f.input :body
-
-    = f.association :user,  as: :hidden
+    = f.association :user, as: :hidden
     = f.association :post, as: :hidden
 
   .form-actions

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :likes
+
   resources :comments
 
   get 'article/new'
