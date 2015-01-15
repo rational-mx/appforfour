@@ -4,6 +4,10 @@
   .form-inputs
     = f.input :body
     = f.association :user, as: :hidden
+    %input{name: "post[media_url]", type: "hidden", id: "post_media_url"}
+
+  #media-insert
 
   .form-actions
     = f.button :submit
+

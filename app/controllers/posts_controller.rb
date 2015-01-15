@@ -23,6 +23,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    add_post_media(media_post_param[:media_url])
     @post.user = current_user
     @post.save
     respond_with(@post)
@@ -45,6 +46,14 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:body, :user_id)
+    end
+
+    def media_post_param
+      params.require(:post).permit(:media_url)
+    end
+
+    def add_post_media(media_url)
+      @post.medium = Article.new(link_url: media_url)
     end
 
     def get_dynamics
