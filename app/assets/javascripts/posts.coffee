@@ -11,18 +11,21 @@ AnalizePostBody = (body) ->
   	already = true 
   else
     #Check regex has problems with larg urls
-  	url = body.match /\b(([\w-]+:\/\/?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/)))/
-  	$("#post_media_url").val(url[1])
-  	InsertLink($("#media-insert"), url[1])
-  	already = true 
+    url = body.match /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
+    $("#post_media_url").val(url[0])
+  	InsertLink($("#media-insert"), url[0])
+  	if url != null
+      already = true 
   		
   	
 InsertLink = (container, url_link) ->
+  $("#post_media_url").val("<a href='"+url_link+"''>"+url_link+"</a>")
   container.html "<a href='"+url_link+"''>"+url_link+"</a>"
 
   
 
 InsertYoutube = (container, youtube_key) ->
+  $("#post_media_url").val("<embed width= '320' height='190' src = 'http://www.youtube.com/v/" + youtube_key + "'>")
   container.html "<embed width= '320' height='190' src = 'http://www.youtube.com/v/" + youtube_key + "'>"
 
 

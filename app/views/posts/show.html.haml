@@ -3,8 +3,9 @@
 %p
   %b Body:
   = @post.body
-- if @post.medium
-  %embed{width: "320", height: "190", src: "http://www.youtube.com/v/" + @post.medium.link_url}
+- if @post.medium 
+  / Check application config for saniteze tags permited
+  = sanitize @post.medium.link_url
 %p
   %b User:
   = @post.user.username
