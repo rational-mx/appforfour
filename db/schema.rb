@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150116200603) do
+ActiveRecord::Schema.define(version: 20150116201332) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "link_url"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20150116200603) do
   end
 
   add_index "likes", ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
+  add_index "likes", ["user_id", "likeable_id"], name: "index_likes_on_user_id_and_likeable_id", unique: true
   add_index "likes", ["user_id"], name: "index_likes_on_user_id"
-  add_index "likes", ["user_id"], name: "one_user_like_per_post", unique: true
 
   create_table "photos", force: :cascade do |t|
     t.string   "image_url"
