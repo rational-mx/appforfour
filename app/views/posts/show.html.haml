@@ -4,7 +4,7 @@
   %b Body:
   = @post.body
 - if @post.medium 
-  / Check application config for saniteze tags permited
+  / Check application config for sanitize tags permited
   = sanitize @post.medium.link_url
 %p
   %b User:
@@ -22,7 +22,7 @@
   - @post.comments.each do |comment|
     = comment.user.username
     =":"
-    = comment.body
+    = sanitize comment.body
     %br
 
 = render 'comments/form'

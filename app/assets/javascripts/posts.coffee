@@ -16,7 +16,6 @@ AnalizePostBody = (body) ->
   	InsertLink($("#media-insert"), url[0])
   	if url != null
       already = true 
-  		
   	
 InsertLink = (container, url_link) ->
   $("#post_media_url").val("<a href='"+url_link+"''>"+url_link+"</a>")

@@ -1,3 +1,19 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+
+$(document).on "ready page:change", ->
+  $("#submit_comment").on "click", ->
+    ConvertAllLinks()
+
+ConvertAllLinks = () ->
+  comment =  $('#comment_body').val()
+  words = comment.split(' ')
+  for i in [0..words.length] by 1
+    words[i] = IsLinK(words[i])
+  words = words.join(' ')
+  $('#comment_body').val(words)
+
+
+IsLinK = (word) ->
+  if /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(word) 
+    "<a href='"+word+"'>"+ word + "</a>"
+  else
+    word

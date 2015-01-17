@@ -2,5 +2,5 @@
 - @post.comments.each do |comment|
   = comment.user.username
   =":"
-  = comment.body
+  = sanitize comment.body
   %br
