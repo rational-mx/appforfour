@@ -1,1 +1,5 @@
+<% if @likeable.class.name == "Post" %>
 $('#likes').html("<%= j (render 'to_like')%>");
+<% else %>
+$('#cmtpst' + "<%= @likeable.id%>").html("<%= j (render 'to_like')%>");
+<% end %>

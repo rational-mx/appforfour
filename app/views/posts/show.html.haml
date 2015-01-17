@@ -24,16 +24,17 @@
     =":"
     = sanitize comment.body
     %br
-    - comment_like = comment.likes.where(user_id: current_user.id)
-    - if comment_like.blank?
-      - @like = comment.likes.new
-      - @like.user = current_user
-      = render 'likes/form'
-    - else
-      - @like = comment_like.first
-      = link_to "Don't like anymore", like_path(@like), method: :delete, remote: true
-    %b likes:
-    = comment.likes.count
+    %div{id: "cmtpst" + comment.id.to_s}
+      - comment_like = comment.likes.where(user_id: current_user.id)
+      - if comment_like.blank?
+        - @like = comment.likes.new
+        - @like.user = current_user
+        = render 'likes/form'
+      - else
+        - @like = comment_like.first
+        = link_to "Don't like anymore", like_path(@like), method: :delete, remote: true
+      %b likes:
+      = comment.likes.count
 
 = render 'comments/form'
 
