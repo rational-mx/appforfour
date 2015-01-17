@@ -13,7 +13,14 @@ user = User.new(
   password:  '12345678',
   password_confirmation: '12345678'
 )
-user.save!	
+user.save!
+user2 = User.new(
+  username: "user2",
+  email: "user2@mail.com",
+  password:  '12345678',
+  password_confirmation: '12345678'
+)
+user2.save!  
 post = Post.new(
 	body: "Este es un commet dura duran espis din weis",
 	user_id: user.id

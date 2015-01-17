@@ -17,8 +17,9 @@
     %b likes:
     = @post.likes.count
 
-%p#comments
+#comments
   %b Comments:
+  %br
   - @post.comments.all.each do |comment|
     = comment.user.username
     =":"
