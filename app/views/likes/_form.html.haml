@@ -3,7 +3,8 @@
 
   .form-inputs
     = f.association :user, as: :hidden
-    = f.association :post, as: :hidden
+    %input{name: "like[likeable_id]", type: "hidden", id: "like_likeable_id", value: @like.likeable.id}
+    %input{name: "like[likeable_type]", type: "hidden", id: "like_likeable_type", value: @like.likeable_type}
 
   .form-actions
     = f.button :submit

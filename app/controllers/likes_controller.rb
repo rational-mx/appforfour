@@ -22,9 +22,9 @@ class LikesController < ApplicationController
 
   def create
     @like = Like.new(like_params)
-    @post = @like.post
     @like.save
-    respond_with(@like.post)
+    @likeable = @like.likeable
+    respond_with(@like)
   end
 
   def update
@@ -33,10 +33,11 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @post = @like.post
+    @likeable = @like.likeable
     @like.destroy
-    @like = @post.likes.new
+    @like = @likeable.likes.new
     @like.user = current_user
+    @like.likeable = @likeable
     respond_with(@like)
   end
 
@@ -45,11 +46,7 @@ class LikesController < ApplicationController
       @like = Like.find(params[:id])
     end
 
-    def set_post
-      @post = @like.post
-    end
-
     def like_params
-      params.require(:like).permit(:user_id, :post_id)
+      params.require(:like).permit(:user_id, :likeable_id, :likeable_type)
     end
 end
