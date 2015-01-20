@@ -1,0 +1,27 @@
+%h1 Listing devise_infs
+
+%table
+  %thead
+    %tr
+      %th Browser
+      %th Os
+      %th Post
+      %th Comment
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @devise_infs.each do |devise_inf|
+      %tr
+        %td= devise_inf.browser
+        %td= devise_inf.os
+        %td= devise_inf.post
+        %td= devise_inf.comment
+        %td= link_to 'Show', devise_inf
+        %td= link_to 'Edit', edit_devise_inf_path(devise_inf)
+        %td= link_to 'Destroy', devise_inf, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Devise inf', new_devise_inf_path

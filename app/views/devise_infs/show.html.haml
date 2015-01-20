@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Browser:
+  = @devise_inf.browser
+%p
+  %b Os:
+  = @devise_inf.os
+%p
+  %b Post:
+  = @devise_inf.post
+%p
+  %b Comment:
+  = @devise_inf.comment
+
+= link_to 'Edit', edit_devise_inf_path(@devise_inf)
+\|
+= link_to 'Back', devise_infs_path

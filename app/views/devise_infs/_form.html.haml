@@ -1,0 +1,11 @@
+= simple_form_for(@devise_inf) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :browser
+    = f.input :os
+    = f.association :post
+    = f.association :comment
+
+  .form-actions
+    = f.button :submit
