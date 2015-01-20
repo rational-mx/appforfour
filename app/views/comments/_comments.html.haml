@@ -4,6 +4,10 @@
   = comment.user.username
   =":"
   = sanitize comment.body
+  %b Browser:
+  = comment.device_inf.browser
+  %b Os:
+  = comment.device_inf.os
   %br
   %div{id: "cmtpst" + comment.id.to_s}
     - comment_like = comment.likes.where(user_id: current_user.id)
@@ -16,3 +20,4 @@
       = link_to "Don't like anymore", like_path(@like), method: :delete, remote: true
     %b likes:
     = comment.likes.count
+  %br

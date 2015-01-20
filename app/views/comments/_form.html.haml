@@ -4,9 +4,9 @@
   .form-inputs
 
     = f.input :body
-
-    = f.association :user,  as: :hidden
     = f.association :post, as: :hidden
+    %input{name: "device_inf[browser]", type: "hidden", id: "comment_device_inf_browser"}
+    %input{name: "device_inf[os]", type: "hidden", id: "comment_device_inf_os"}
 
   .form-actions
     = f.button :submit , remote: true, id: :submit_comment

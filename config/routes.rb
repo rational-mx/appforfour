@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :devise_infs
+  resources :device_infs
 
   resources :likes
 

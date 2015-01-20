@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DeviseInfTest < ActiveSupport::TestCase
+class DeviceInfTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

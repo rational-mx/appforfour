@@ -24,6 +24,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     add_post_media(media_post_param[:media_url])
+    add_post_device_inf(device_inf_post_param[:browser], device_inf_post_param[:os])
     @post.user = current_user
     @post.save
     respond_with(@post)
@@ -52,8 +53,16 @@ class PostsController < ApplicationController
       params.require(:post).permit(:media_url)
     end
 
+    def device_inf_post_param
+      params.require(:device_inf).permit(:browser, :os)
+    end
+
     def add_post_media(media_url)
       @post.medium = Article.new(link_url: media_url)
+    end
+
+    def add_post_device_inf(browser_name, os_name)
+      @post.device_inf = DeviceInf.new(browser: browser_name, os: os_name)
     end
 
     def get_dynamics

@@ -1,6 +1,6 @@
-class CreateDeviseInfs < ActiveRecord::Migration
+class CreateDeviceInfs < ActiveRecord::Migration
   def change
-    create_table :devise_infs do |t|
+    create_table :device_infs do |t|
       t.string :browser
       t.string :os
       t.belongs_to :post, index: true
@@ -8,7 +8,7 @@ class CreateDeviseInfs < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :devise_infs, :posts
-    add_foreign_key :devise_infs, :comments
+    add_foreign_key :device_infs, :posts
+    add_foreign_key :device_infs, :comments
   end
 end

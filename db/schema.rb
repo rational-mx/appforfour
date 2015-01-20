@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120182845) do
+ActiveRecord::Schema.define(version: 20150120195702) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "link_url"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150120182845) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
-  create_table "devise_infs", force: :cascade do |t|
+  create_table "device_infs", force: :cascade do |t|
     t.string   "browser"
     t.string   "os"
     t.integer  "post_id"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20150120182845) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "devise_infs", ["comment_id"], name: "index_devise_infs_on_comment_id"
-  add_index "devise_infs", ["post_id"], name: "index_devise_infs_on_post_id"
+  add_index "device_infs", ["comment_id"], name: "index_device_infs_on_comment_id"
+  add_index "device_infs", ["post_id"], name: "index_device_infs_on_post_id"
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
