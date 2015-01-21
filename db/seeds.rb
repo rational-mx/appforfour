@@ -27,6 +27,8 @@ post = Post.new(
 )
 post.save!
 
+Post.device_inf.new(browser: "Pe" os: "ne")
+
 
 40.times {
   |i|  
