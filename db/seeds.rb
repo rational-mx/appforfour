@@ -27,8 +27,8 @@ post = Post.new(
 )
 post.save!
 
-Post.device_inf.new(browser: "Pe" os: "ne")
-
+post.device_inf = DeviceInf.new(browser: "Pe", os: "ne")
+post.device_inf.save!
 
 40.times {
   |i|  
