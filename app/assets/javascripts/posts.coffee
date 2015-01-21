@@ -46,7 +46,6 @@ InsertLink = (container, url_link) ->
 
 
 InsertLink = (container, url_link) ->
->>>>>>> 984568a154c77771135362bc6c29d7c83064b102
   $("#post_media_url").val("<a href='"+url_link+"''>"+url_link+"</a>")
   container.html "<a href='"+url_link+"''>"+url_link+"</a>"
 
