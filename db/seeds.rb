@@ -36,4 +36,6 @@ post.device_inf.save!
   comment.post = post
   comment.user =user
   comment.save!
+  comment.device_inf = DeviceInf.new(browser: "Pe", os: "ne")
+  comment.device_inf.save!
 }
