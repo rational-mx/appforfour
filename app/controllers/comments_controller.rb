@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @post = @comment.post
+    @number_of_comments = 4
     @comment.user = current_user
     add_device_inf_comment(device_inf_comment_params[:browser], device_inf_comment_params[:os])
     @comment.save

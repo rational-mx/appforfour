@@ -42,10 +42,9 @@ class PostsController < ApplicationController
   end
 
   def scroll
-
     @comments = @post.comments.all.order('id asc').limit(params[:number_of_comments])
-    @number_of_comments = params[:number_of_comments]
-    @number_of_comments = @number_of_comments.to_i + 5
+    @number_of_comments = params[:number_of_comments].to_i + 5
+
   end
 
   private

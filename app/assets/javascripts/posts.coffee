@@ -1,4 +1,5 @@
 already = false
+flip_flop = true
 $(document).on "ready page:change", ->
   $("#post_body").keyup ->
     AnalizePostBody($("#post_body").val()) if !already
@@ -27,6 +28,14 @@ $(document).on "ready page:change", ->
   $("#comment_device_inf_browser").val(browserName)
   $("#comment_device_inf_os").val(osName)
 
+
+  $(window).scroll ->
+    if flip_flop
+      if $(window).scrollTop() + $(window).height() is $(document).height()
+        $('#more_comments').click()
+        flip_flop = false
+    else
+      flip_flop = true
 
 AnalizePostBody = (body) ->
   youtube_key = body.match /www.youtube.com.watch.v=(\w{11})/
