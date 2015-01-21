@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy,:scroll]
   before_action :get_dynamics, only: [:show]
 
-  respond_to :html
+  respond_to :html,:js
 
   def index
     @posts = Post.all
@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @number_of_comments = 5
     respond_with(@post)
   end
 
@@ -39,6 +40,13 @@ class PostsController < ApplicationController
     respond_with(@post)
   end
 
+  def scroll
+
+    @comments = @post.comments.all.order('id asc').limit(params[:number_of_comments])
+    @number_of_comments = params[:number_of_comments]
+    @number_of_comments = @number_of_comments.to_i + 5
+  end
+
   private
     def set_post
       @post = Post.find(params[:id])
@@ -50,6 +58,10 @@ class PostsController < ApplicationController
 
     def media_post_param
       params.require(:post).permit(:media_url)
+    end
+
+    def number_comments_param
+      params.require(:post).permit(:number_of_comments)
     end
 
     def add_post_media(media_url)

@@ -28,8 +28,13 @@ Rails.application.routes.draw do
   get 'index/create'
 
   get 'index/destroy'
+  resources :posts do
+    member do
+      get 'scroll/:number_of_comments' , action: :scroll, as: :scroll
 
-  resources :posts
+    end
+  end
+
 
   devise_for :users
   get 'pages/index'

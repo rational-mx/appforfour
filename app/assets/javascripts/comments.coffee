@@ -1,7 +1,10 @@
+number_of_comments = 5
 
 $(document).on "ready page:change", ->
   $("#submit_comment").on "click", ->
     ConvertAllLinks()
+
+    
 
 ConvertAllLinks = () ->
   comment =  $('#comment_body').val()

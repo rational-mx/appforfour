@@ -1,6 +1,4 @@
-%b Comments:
-%br
-- @post.comments.all.each do |comment|
+- @post.comments.all.order('id asc').all[@number_of_comments-5..@number_of_comments].each do |comment|
   = comment.user.username
   =":"
   = sanitize comment.body
@@ -16,3 +14,4 @@
       = link_to "Don't like anymore", like_path(@like), method: :delete, remote: true
     %b likes:
     = comment.likes.count
+= link_to 'Most comments', scroll_post_path(@post,number_of_comments: (@number_of_comments)), method: :get,remote: true,  id: :more_comments

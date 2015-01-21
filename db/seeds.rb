@@ -26,3 +26,12 @@ post = Post.new(
 	user_id: user.id
 )
 post.save!
+
+
+40.times {
+  |i|  
+  comment = Comment.new(body: "Comment #{i} ") 
+  comment.post = post
+  comment.user =user
+  comment.save!
+}
