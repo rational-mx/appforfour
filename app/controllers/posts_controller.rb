@@ -63,7 +63,7 @@ class PostsController < ApplicationController
 
     def number_comments_param
       params.require(:post).permit(:number_of_comments)
-
+    end
     def device_inf_post_param
       params.require(:device_inf).permit(:browser, :os)
 
