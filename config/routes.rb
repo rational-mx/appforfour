@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :device_infs
+
   resources :likes
 
   resources :comments

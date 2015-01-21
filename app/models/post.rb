@@ -3,4 +3,5 @@ class Post < ActiveRecord::Base
   belongs_to :medium, polymorphic: true
   has_many :comments
   has_many :likes, as: :likeable
+  has_one :device_inf
 end

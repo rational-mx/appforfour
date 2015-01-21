@@ -1,0 +1,27 @@
+%h1 Listing device_infs
+
+%table
+  %thead
+    %tr
+      %th Browser
+      %th Os
+      %th Post
+      %th Comment
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @device_infs.each do |device_inf|
+      %tr
+        %td= device_inf.browser
+        %td= device_inf.os
+        %td= device_inf.post
+        %td= device_inf.comment
+        %td= link_to 'Show', device_inf
+        %td= link_to 'Edit', edit_device_inf_path(device_inf)
+        %td= link_to 'Destroy', device_inf, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Device inf', new_device_inf_path
