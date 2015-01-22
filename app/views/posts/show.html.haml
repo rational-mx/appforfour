@@ -23,31 +23,7 @@
     = @post.likes.count
 %b Comments:
 #comments
-  %br
-  - @post.comments.order('id desc').all[@number_of_comments-5..@number_of_comments].each do |comment|
-    = comment.user.username
-    =":"
-    = sanitize comment.body
-    - if @post.device_inf
-      %b Browser:
-      = comment.device_inf.browser
-      %b Os:
-      = comment.device_inf.os
-    %br
-    %div{id: "cmtpst" + comment.id.to_s}
-      - comment_like = comment.likes.where(user_id: current_user.id)
-      - if comment_like.blank?
-        - @like = comment.likes.new
-        - @like.user = current_user
-        = render 'likes/form'
-      - else
-        - @like = comment_like.first
-        = link_to "Don't like anymore", like_path(@like), method: :delete, remote: true
-      %b likes:
-      = comment.likes.count
-  = link_to 'Most comments', scroll_post_path(@post,number_of_comments: (@number_of_comments)), method: :get,remote: true, id: :more_comments
-  
-
+  = render 'comments/comments'
 = render 'comments/form'
 
 

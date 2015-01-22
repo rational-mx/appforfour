@@ -1,7 +1,7 @@
 
 $('#more_comments').remove()
 
-$('#comments').append("<%= j render 'comments/comments', number_of_comments: @number_of_comments%>");
+$('#comments').prepend("<%= j render 'comments/comments', number_of_comments: @number_of_comments%>");
 
 $('#more_comments').hide()
 
