@@ -24,6 +24,8 @@ class LikesController < ApplicationController
     @like = Like.new(like_params)
     @like.save
     @likeable = @like.likeable
+    notification = Notification.new
+    notification.add_user_and_notificable(@like.likeable.user,@like.likeable)
     respond_with(@like)
   end
 

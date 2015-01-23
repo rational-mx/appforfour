@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120195702) do
+ActiveRecord::Schema.define(version: 20150123171454) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "link_url"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 20150120195702) do
   add_index "likes", ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
   add_index "likes", ["user_id", "likeable_id", "likeable_type"], name: "index_likes_on_user_id_and_likeable_id_and_likeable_type", unique: true
   add_index "likes", ["user_id"], name: "index_likes_on_user_id"
+
+  create_table "notifications", force: :cascade do |t|
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "notificable_id"
+    t.string   "notificable_type"
+    t.integer  "user_id"
+  end
+
+  add_index "notifications", ["notificable_type", "notificable_id"], name: "index_notifications_on_notificable_type_and_notificable_id"
 
   create_table "photos", force: :cascade do |t|
     t.string   "image_url"

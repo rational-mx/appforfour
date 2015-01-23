@@ -27,6 +27,8 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     add_device_inf_comment(device_inf_comment_params[:browser], device_inf_comment_params[:os])
     @comment.save
+    notification = Notification.new
+    notification.add_user_and_notificable(@post.user,@comment)
     respond_with(@comment.post)
   end
 
