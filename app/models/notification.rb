@@ -7,4 +7,8 @@ class Notification < ActiveRecord::Base
     self.notificable = source
     self.save!
   end
+
+  def self.session_notifications(owner)
+    where(user: owner)
+  end
 end

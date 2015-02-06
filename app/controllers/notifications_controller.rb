@@ -4,7 +4,7 @@ class NotificationsController < ApplicationController
   respond_to :html
 
   def index
-    @notifications = Notification.all
+    @notifications = Notification.session_notifications(current_user)
     respond_with(@notifications)
   end
 
