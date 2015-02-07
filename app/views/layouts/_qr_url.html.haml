@@ -4,6 +4,6 @@
       %tr
         - @qr.modules.each_index do |y|
           - if @qr.dark?(x,y)
-            %td.black
+            %td.black.qr
           - else
-            %td.white
+            %td.white.qr

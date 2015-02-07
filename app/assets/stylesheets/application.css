@@ -19,7 +19,7 @@ table {
     border-color: #0000ff;
     border-collapse: collapse;
 }
-td {
+td.qr {
     border-width: 0;
     border-style: none;
     border-color: #0000ff;
