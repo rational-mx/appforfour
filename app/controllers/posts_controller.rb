@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy,:scroll]
   before_action :get_dynamics, only: [:show]
-
   respond_to :html,:js
 
   def index
     @posts = Post.all
+
+
     respond_with(@posts)
   end
 
