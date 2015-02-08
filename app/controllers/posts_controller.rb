@@ -81,8 +81,7 @@ class PostsController < ApplicationController
       real_like = @post.likes.where(user_id: current_user.id)
 
       if real_like.blank?
-        @like = @post.likes.new
-        @like.user = current_user
+        @like = @post.likes.new(user: current_user)
         @already_liked = false
       else
         @like = real_like.first

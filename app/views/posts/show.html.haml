@@ -14,12 +14,12 @@
     = @post.device_inf.browser
     %b Os:
     = @post.device_inf.os
-  %div#likes
+  #likes
     - if @already_liked
       = link_to "Don't like anymore", like_path(@like), method: :delete, remote: true
     - else 
       = render 'likes/form'
-    %b likes:
+    %b Likes:
     = @post.likes.count
 %b Comments:
 #comments

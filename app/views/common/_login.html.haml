@@ -1,0 +1,9 @@
+#login
+  %ul
+    - if user_signed_in?
+      %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+      %li
+        Current IP: 
+        = request.ip
+    - else
+      %li= link_to 'Sign In', new_user_session_path
