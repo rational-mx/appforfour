@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :qr_url
+  before_action :qr_url, unless: :devise_controller?
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << [:username, :email]
