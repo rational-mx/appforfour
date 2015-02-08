@@ -12,7 +12,9 @@ gem 'simple_form'
 gem 'bourbon'
 gem 'neat'
 
+gem 'figaro'
 gem 'devise'
+gem 'carrierwave'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
