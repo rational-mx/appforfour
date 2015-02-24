@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def qr_url
-    @qr = RQRCode::QRCode.new(request.original_url)
+    @qr = RQRCode::QRCode.new(request.original_url, size: 10)
   end
 
 end
