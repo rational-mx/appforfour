@@ -23,7 +23,5 @@ module Appforfour
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.action_view.sanitized_allowed_tags = ['embed', 'a']
-
-    config.serve_static_assets = true
   end
 end
