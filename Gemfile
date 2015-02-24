@@ -12,6 +12,8 @@ gem 'simple_form'
 gem 'bourbon'
 gem 'neat'
 
+gem 'rails_12factor', group: :production
+
 gem 'devise'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

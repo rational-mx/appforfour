@@ -4,6 +4,4 @@ class Comment < ActiveRecord::Base
   has_many :likes, as: :likeable
   has_one :device_inf
   has_many :notifications, as: :notificable
-
-
 end
