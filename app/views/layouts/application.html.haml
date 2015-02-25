@@ -11,6 +11,11 @@
   - else
     = link_to 'Sign In', new_user_session_path
   %body
+
+    %div#notice
+      = notice if alert
+    %div#alert
+      = alert if alert
     = yield
 
   = render 'layouts/qr_url'
