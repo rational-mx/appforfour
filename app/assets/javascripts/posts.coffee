@@ -29,7 +29,9 @@ $(document).on "ready page:change", ->
   $("#comment_device_inf_os").val(osName)
 
 
-  $(window).scroll ->
+
+
+$(window).scroll ->
     if flip_flop
       if $(window).scrollTop() + $(window).height() is $(document).height()
         $('#more_comments').click()
@@ -42,20 +44,18 @@ AnalizePostBody = (body) ->
   if youtube_key != null
   	$("#post_media_url").val(youtube_key[1])
   	InsertYoutube($("#media-insert"), youtube_key[1])
-  	already = true 
+  	already = true
   else
-    
-InsertLink = (container, url_link) ->
     #Check regex has problems with larg urls
     url = body.match /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
-    $("#post_media_url").val(url[0])
-  	InsertLink($("#media-insert"), url[0])
-  	if url != null
-      already = true 
+    if url != null
+      $("#post_media_url").val(url[0])
+      InsertLink($("#media-insert"), url[0])
+      already = true
 
 
 InsertLink = (container, url_link) ->
-  $("#post_media_url").val("<a href='"+url_link+"''>"+url_link+"</a>")
+  $("#post_media_url").val("<a href='"+url_link+"'>"+url_link+"</a>")
   container.html "<a href='"+url_link+"''>"+url_link+"</a>"
 
 InsertYoutube = (container, youtube_key) ->
